@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="room.css" />
+  </head>
+  <body style="background-color: #DAECF6;">  
+    <ul class="flex-container wrap">  
+        <input class="startbutton" type="text" placeholder="Title" id="title"
+            minlength="2" maxlength="20" size="46"> 
+        </ul>
+        &nbsp;&nbsp;&nbsp;
+        <ul class="flex-container wrap">  
+        <input class="descriptionbutton" type="text" placeholder="Description" id="description"
+            minlength="2" maxlength="20" size="46"> 
+        </ul>
+        &nbsp;&nbsp;&nbsp;
+        <ul class="flex-container wrap">  
+        <input class="startbutton" type="text" placeholder="Destination" id="destination" 
+            minlength="2" maxlength="20" size="46"> 
+        </ul>
+        &nbsp;&nbsp;&nbsp;
+        <ul class="flex-container wrap">  
+        <input class="datebutton" type="text" placeholder="Start Date: MM/DD/YYYY" id="start"
+            minlength="2" maxlength="20" size="46"> 
+        &nbsp;&nbsp;&nbsp;
+        <input class="datebutton" type="text" placeholder="End Date: MM/DD/YYYY" id="end" 
+            minlength="2" maxlength="20" size="46"> 
+        </ul>
+        <ul class="flex-container wrap">  
+          <input class="datebutton" type="text" placeholder="Start Time: 12:00 AM/PM" id="startTime"
+              minlength="2" maxlength="20" size="46"> 
+          &nbsp;&nbsp;&nbsp;
+          <input class="datebutton" type="text" placeholder="End Time: 12:00 AM/PM" id="endTime" 
+              minlength="2" maxlength="20" size="46"> 
+          </ul>
+    <div id="myDIV" class="header">
+      <h2>Our Expenditures</h2>
+      <input type="text" id="myInput" placeholder="Description">
+      <input type="text" id="peopleInput" placeholder="People">
+      <input type="text" id="costInput" placeholder="Cost">
+      <span onclick="newElement()" id="add" class="addBtn">Add</span>
+      <br>
+      <br>
+      <br>
+      <ul id="myUL" class="list"></ul>
+    </div>
+
+
+
+    <div id="myDIV2" class="header2">
+      <h2>Bulletin Board</h2>
+      <input type="text" id="myInput2" placeholder="Post">
+      <span onclick="newElement2()" id="add" class="addBtn">Add</span>
+      <br>
+      <br>
+      <br>
+      <ul id="myUL2" class="list"></ul>
+    </div>
+
+
+    <div class="calendarmessage">Finalized your trip? Add it to Google Calendar</div>
+    <button onclick="startCalender()" id= "calendarbutton" class="calendarbutton">Add to Calendar</button>
+    <button id= "savebutton" class="mapbutton">Save</button>
+    <script src="room.js"></script>
+    <script>
+      function formatAMPM(date) {
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        minutes = minutes.toString().padStart(2, '0');
+        let strTime = hours + ':' + minutes + ' ' + ampm;
+        return strTime;
+    }
+    </script>
+    <script>
+      function addoldPurchase(input, name, cost, purchaser) {
+        var li = document.createElement("li");
+        document.getElementById("myInput").value = input;
+        var inputValue = document.getElementById("myInput").value;
+        var t = document.createTextNode(inputValue);
+
+        document.getElementById("peopleInput").value = name;
+        var nameValue = document.getElementById("peopleInput").value;
+        var u = document.createTextNode(nameValue);
+
+        document.getElementById("costInput").value = cost;
+        var costValue = document.getElementById("costInput").value;
+        var v = document.createTextNode(costValue);
+        linebreak = document.createElement("br");
+        linebreak2 = document.createElement("br");
+        li.appendChild(t);
+        li.appendChild(linebreak);
+        li.appendChild(u);
+        li.appendChild(linebreak2);
+        li.appendChild(v); 
+        
+        document.getElementById("myUL").appendChild(li);
+        
+        document.getElementById("myInput").value = "";
+        document.getElementById("peopleInput").value = "";
+        document.getElementById("costInput").value = "";
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+
+        for (i = 0; i < close.length; i++) {
+      close[i].onclick = function(e) {
+      let arr = Array.from(close)
+      var div = this.parentElement;
+      div.style.display = "none";
+      fetch('/purchase/delete?token=' + params.token, {
+        method: "DELETE",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          purchaseIndex: arr.indexOf(e.target)
+        })
+      })
+    }
+  }
+            }
+
+      function addOldPosts(poster, post){
+        var li = document.createElement("li");
+        var t = document.createTextNode(post);
+        linebreak = document.createElement("br");
+        li.appendChild(document.createTextNode(poster + ":"))
+        li.appendChild(linebreak)
+        li.appendChild(t);
+        document.getElementById("myUL2").appendChild(li);
+
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+
+        for (i = 0; i < close.length; i++) {
+      close[i].onclick = function(e) {
+      let arr = Array.from(close)
+      var div = this.parentElement;
+      div.style.display = "none";
+      fetch('/bulletin/delete?token=' + params.token, {
+        method: "DELETE",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          postIndex: arr.indexOf(e.target)
+        })
+      })
+    }
+  }
+            }
+
+
+      const params = {}
+      document.location.search.substr(1).split('&').forEach(pair => {
+      [key, value] = pair.split('=');
+      params[key] = value;
+      })
+      console.log(params.token)
+      async function update() {
+        let room = await fetch('./room/get?token=' + params.token, {
+          method: "GET",
+          headers: {'Content-Type': 'application/json'}
+        }).then(res => res.json())
+        let calendar = room.calendar
+        console.log(room)
+
+        if (calendar.summary != "Null") {
+          let start = new Date(calendar.start.dateTime);
+          if (start != "Invalid Date") {
+            var month = start.getMonth() + 1; //months from 1-12
+            var day = start.getDate();
+            var year = start.getFullYear();
+            let startStr = month+'/'+day+'/'+year
+            let startTime = formatAMPM(start);
+            if (start != "Invalid Date" && start.getFullYear() != "1900") {
+              document.getElementById("start").value = startStr;
+              document.getElementById("startTime").value = startTime;
+            }
+          }
+          
+          let end = new Date(calendar.end.dateTime);
+          if (end != "Invalid Date") {
+            var emonth = end.getMonth() + 1; //months from 1-12
+            var eday = end.getDate();
+            var eyear = end.getFullYear();
+            let endStr = emonth+'/'+eday+'/'+eyear
+            let endTime = formatAMPM(end);
+            if (end != "Invalid Date" && end.getFullYear() != "1900") {
+              document.getElementById("end").value = endStr;
+              document.getElementById("endTime").value = endTime;
+            }
+          }
+          
+          if (calendar.summary) {
+            document.getElementById("title").value = calendar.summary;
+          }
+          if (room.description) {
+            document.getElementById("description").value = room.description;
+          }
+          if (calendar.location) {
+            document.getElementById("destination").value = calendar.location;
+          }
+        }
+        for (var i = 0; i < room.purchases.length; i++) {
+          curPurchase = room.purchases[i]
+          if (!curPurchase.purchaseName) {
+            continue;
+          }
+          addoldPurchase(curPurchase.purchaseName, curPurchase.owe.join(', '), curPurchase.price, curPurchase.purchaser);
+        }
+        for (var i = 0; i < room.posts.length; i++) {
+          currPost = room.posts[i]
+          if (!currPost.post) {
+            continue;
+          }
+          addOldPosts(currPost.poster, currPost.post)
+        }
+      }
+      update()
+      
+    </script>
+
+    <script>
+      async function startCalender() {
+        if ("code" in params) {
+          alert("Calendar has already been added!")
+          return;
+        }
+          let authUrl = await fetch('/calendar/getAuthUrl?uri=' + encodeURIComponent(window.location.href), {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+          }).then(res => res.json())
+          window.location.replace(authUrl.url);
+      }
+    </script>
+
+    <script>
+      function removeParams(params) {
+            var url = window.location.href.split('?')[0]+'?';
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+         
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] != 'code' && sParameterName[0] != 'scope') {
+                    url = url + sParameterName[0] + '=' + sParameterName[1] + '&'
+                }
+            }
+            console.log(url.substring(0,url.length-1));
+            return url.substring(0,url.length-1);
+    }
+
+
+      async function showCalendarLink() {
+        let url = removeParams()
+        if ("code" in params) {
+          const promise = new Promise((resolve) => {
+            fetch('/calendar/getToken?uri=' + encodeURIComponent(url) + '&code=' +
+            params.code, {
+              method: 'GET',
+              headers: {'Content-Type': 'application/json'}
+            }).then(res => resolve(res.json()))
+          })
+          promise.then((token) => {
+            console.log(token)
+            fetch('/calendar/get?'+ encodeURIComponent(url) + '&roomToken=' + params.token, {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                token: token
+              })
+            }).then(res => res.json())
+            .then(data => {
+              //Display calendar in new tab
+              window.open(data.link, '_blank').focus();
+              // alert("Event has been added to your calendar, it can be found at " + data.link);
+            })
+          }).catch((err) => console.log(err))
+            // console.log('code is there')
+            
+            // console.log(token);
+
+
+            // console.log(link)
+        } else {
+          console.log('no code')
+        }
+      }
+      showCalendarLink();
+    </script>
+  </body>
+</html>

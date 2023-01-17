@@ -1,0 +1,128 @@
+body {
+    background-image: url('./background1.jpeg');
+}
+
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: floralwhite;
+    margin:30px 50px 0px 200px; // top right bottom left
+    height: 50px;
+    padding: 25px;
+}
+
+.nav-about {
+    display: flex;
+    justify-content: space-around;
+    background-color: floralwhite;
+    margin: 30px 50px 0px 200px; // top right bottom left
+    height: 50px;
+    padding: 0px;
+}
+
+.page {
+    display: flex;
+    justify-content: space-around;
+    background-color: Beige;
+    margin:0px 50px 0px 200px; // top right bottom left
+    height: 10px;
+    padding: 100px;
+}
+
+.about {
+    display: flex;
+    justify-content: space-around;
+    background-color: mediumvioletred;
+    margin:0px 50px 0px 200px; // top right bottom left
+    height: 10px;
+    padding: 100px;
+}
+
+.font {
+    font-family: Papyrus, Copperplate, Fantasy;
+    font-size: medium;
+}
+
+.portfolio {
+    display: flex;
+    justify-content: flex-start;
+    background-color: floralwhite;
+    margin: 30px 50px 0px 200px; // top right bottom left
+    padding: 0px;
+}
+
+.contact {
+    display: flex;
+    justify-content: flex-start;
+    background-color: floralwhite;
+    margin: 30px 50px 0px 200px; // top right bottom left
+    padding: 0px;
+}
+/* For the aesthetics */
+.nav-button { 
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.About-item {
+    background-color: floralwhite;
+    font-size: 20px;
+    text-align: center;
+    padding: 0px;
+    width: 80px;
+    height: 500px;
+    margin: 0px;
+}
+
+.Contact-item {
+    background-color: floralwhite;
+    font-size: 20px;
+    text-align: center;
+    padding: 0px;
+    width: 80px;
+    height: 50px;
+    margin: 0px;
+}
+
+.page-text { 
+    margin: 0 px;
+    text-align: left; 
+    font-size: 20px;
+    padding: 0 px;
+}
+
+.first-txt {
+            position: absolute;
+            top: 250px;
+            left: 720px;
+        }
+
+.portfolio {
+
+}
+
+
+.nav-background {
+    background-color: #fff;
+}
+
+.Beige {
+    background-color: Beige;
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-content: space-between;
+}
+
+.wrap { 
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+

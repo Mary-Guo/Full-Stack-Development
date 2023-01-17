@@ -1,0 +1,246 @@
+/* Ignore following classes */
+
+* {
+  font-family: "Montserrat", sans-serif;
+  background-color: #eeeeee;
+}
+
+#intro {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin: 50px;
+}
+
+.insideborder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.para {
+  font-weight: 300;
+  margin-left: 10px;
+}
+
+h2 {
+  font-size: medium;
+  font-weight: 200;
+}
+
+.img {
+  background-color: white;
+  position: relative;
+  left: 10px;
+  Top:  90px;
+  width: 150px;
+  height: 40%;
+
+}
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 30%;
+  height: 12%;
+  background-color: blue;
+  padding: 20px;
+
+}
+
+.flex-item1 {
+  background: blue;
+  padding: 5px;
+  width: 80px;
+  height: 24px;
+  margin: 0px;
+
+}
+
+.flex-item2 {
+  background: white;
+  padding: 5px;
+  width: 40px;
+  height: 24px;
+  margin: 0px;
+
+}
+
+.flex-item3 {
+  background: white;
+  padding: 5px;
+  width: 220px;
+  height: 24px;
+  margin: 0px;
+}
+
+.flex-item4 {
+  background: white;
+  padding: 5px;
+  width: 260px;
+  height: 24px;
+  margin: 0px;
+}
+
+.flex-item5 {
+  background: blue;
+  padding: 5px;
+  width: 260px;
+  height: 24px;
+  margin: 0px;
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-content: space-between;
+}
+
+.wrap { 
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+/*.nav-item1 {
+  background-color: white;
+  width: 10px;
+  padding: 15px;
+} 
+
+.nav-item2 {
+  background-color: white;
+  width: 20%;
+  padding: 10px;
+} */
+
+
+/* Classes that you might find useful */
+/* Note* These classes do not cover every possibloe case to build you flags, you will have to continue to add your own*/
+
+.flag {
+  height: 300px;
+  width: 500px;
+  border-style: solid;
+  margin-bottom: 5rem;
+}
+
+.horiz {
+  display: flex;
+  flex-direction: row;
+}
+
+.twovert {
+  height: 50%;
+}
+
+.threevert {
+  height: 33.3%;
+}
+
+.fourvert {
+  height: 25%;
+}
+
+.eightvert {
+  height: 12.5%;
+}
+
+.ninevert {
+  height: 11.1%;
+}
+
+.threehoriz {
+  width: 33.3%;
+}
+
+
+
+.skinny {
+  height: 17.5%;
+}
+
+.fat {
+  height: 30%;
+}
+
+.circle {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  position: relative;
+  left: 85px;
+  top: 50px;
+}
+
+/* Colors/ Feel free to add your own! */
+
+.red {
+  background-color: red;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.lightblue {
+  background-color: lightblue;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.white {
+  background-color: #fff;
+}
+
+.Luxembourgblue {
+  background-color: #00A2E1;
+}
+
+.thaired {
+  background-color: #a51931;
+}
+
+.thaiwhite {
+  background-color: #f4f5f8;
+}
+
+.thaiblue {
+  background-color: #2d2a4a;
+}
+
+.romaniablue {
+  background-color: #002B7F;
+} 
+
+.romaniayellow {
+  background-color: #FCD116;
+} 
+
+.romaniared {
+  background-color: #CE1126;
+}
+
+.mexicogreen {
+  background-color: #006341;
+}
+
+.mexicored {
+  background-color: #CE1126;
+}
+
+

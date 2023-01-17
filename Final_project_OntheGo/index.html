@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Calendar API Quickstart</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <p id="code"></p>
+    <script>
+      const params = {}
+      document.location.search.substr(1).split('&').forEach(pair => {
+        [key, value] = pair.split('=');
+        params[key] = value;
+      })
+      console.log(params);
+      document.getElementById("code").innerHTML = params.code;
+    </script>
+  </body>
+</html>
